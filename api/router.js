@@ -17,6 +17,16 @@ router.get('/', (req, res) => {
             res.status(500).json({ errorMessage: "The projects information could not be retrieved."})
         })
 })
+
+router.get('/:id', validateProjectId, (req, res) => {
+    const id = req.params.id
+
+    dbProject.get(id)
+        .then(response => res.status(200).json(response))
+        .catch(error => {
+            res.status(500).json({ errorMessage: "The projects information could not be retrieved."})
+        })
+})
 // post - '/' - add new project - insert() - required fields: name (string), description (string)
 router.post('/', (req, res) => {
     newProject = req.body
@@ -56,6 +66,16 @@ router.delete('/:id', validateProjectId, (req, res) => {
 // get - '/:id/actions' - get all actions from given project
 router.get('/:id/actions', validateProjectId, (req, res) => {
     dbActions.get()
+        .then(response => res.status(200).json(response))
+        .catch(error => {
+            res.status(500).json({ errorMessage: "The actions information could not be retrieved."})
+        })
+})
+
+router.get('/:id/actions/:aid', validateProjectId, (req, res) => {
+    const aid = req.params.aid
+    
+    dbActions.get(aid)
         .then(response => res.status(200).json(response))
         .catch(error => {
             res.status(500).json({ errorMessage: "The actions information could not be retrieved."})
