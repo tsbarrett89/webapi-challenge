@@ -40,13 +40,24 @@ Demonstrate your understanding of this Sprint's concepts by answering the follow
 
 - [ ] Mention two parts of Express that you learned about this week.
 
+        1. express is a dependency that must be installed
+        2. sits on top of your raw http server created by Node.js and adds extra functionality, routing and middleware
+
 - [ ] Describe Middleware?
+
+        Middleware is small functions that handle one aspect of our application. Also add modularity.
 
 - [ ] Describe a Resource?
 
+        A resource is a piece of information stored in an API database.
+
 - [ ] What can the API return to help clients know if a request was successful?
 
+        Status codes
+
 - [ ] How can we partition our application into sub-applications?
+
+        By having different folders for data, helpers, routers, servers, etc.
 
 ## Minimum Viable Product
 
